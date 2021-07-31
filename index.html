@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
+<link rel="stylesheet" href="dataviz.css">
+
+<title>Data Visualization Project</title>       
+    
+</head>
+
+<body>
+
+<!-- Div for the landing section -->
+<div class = "background-img">
+    
+<h1 class = "heading1">Why do we die?</h1>
+<h2 class = "heading2">A Project that finds the Leading Causes of Death in Humans</h2>
+    
+</div>    
+    
+<!-- Div for the introduction section -->
+<div class = "introduction">
+    
+<h2 class = "h-introduction">Death is an intrinsic part of life.</h2>
+
+<p class = "p-introduction">In fact, the only event that will certainly occur in the lives of every human being is death and yet it is ignored as if it will never happen. But death is not just a metaphysical concept. It is also a consequence of certain underlying causes such as disease, injury, infection, etc. And it is as important to understand these causes of death as it is to understand and accept the concept of death itself.
+    
+<p class = "p-introduction">Researching the causes behind death help in understanding the life of people. It is particularly helpful in finding out the conditions of different countries and whether the people are prosperous or not. That is why this project aims to understand the leading causes of death and their relevance to the socio-economic positions of countries.</p>
+</div>  
+    
+<!-- Div for asking question from user section -->
+<div class = "question">
+<p class = "p-question">What do you think is the most common cause of death? News articles would have us belive that an insanely high people are murdered than ever before or that terrorism is at an all time high. But what about the natural causes of death? After all, many more people die because of natural causes all over the world and these are never discussed or brought in the limelight.<p>
+<p class = "p-line"> So think about it. According to your experiences in life, what do you think is the most common cause of death?</p>
+
+<div class="button-div">
+<button class="button" onclick="function1()">Cancer</button>
+<button class="button" onclick="function2()">Heart problems</button>
+<button class="button" onclick="function3()">Terrorist attacks</button>
+<button class="button" onclick="function4()">I have no clue!</button>
+    
+<script>
+function function1() {
+document.getElementById("cause").innerHTML = "While Cancer is one of the most causes of death, it does not occupy the top spot. Actually the most common cause of death globally is Heart problems or in more complex terms <a href = 'https://www.who.int/health-topics/cardiovascular-diseases/#tab=tab_1' target = '_blank'>Cardiovascular diseases</a>. In fact, almost 31% of all global deaths in 2017 occured because of cardiovascular diseases while <a href = 'https://www.who.int/health-topics/cancer#tab=tab_1' target = '_blank'>Cancers</a> (or neoplasms in medical terms) contributed to 18% of global deaths.";
+}
+    
+function function2() {
+    
+document.getElementById("cause").innerHTML = "You are absolutely correct. Heart problems or in more complex terms, <a href = 'https://www.who.int/health-topics/cardiovascular-diseases/#tab=tab_1' target = '_blank'>Cardiovascular diseases</a>, is the most common cause of death globally. In fact, almost 31% of all global deaths in 2017 occured because of cardiovascular diseases while <a href = 'https://www.who.int/health-topics/cancer#tab=tab_1' target = '_blank'>Cancers</a> (or neoplasms in medical terms) contributed to 18% of global deaths."
+}
+    
+function function3() {
+
+document.getElementById("cause").innerHTML = "Terrorist attacks and other cases of interpersonal violence are the one's highlighted the most by the media. Maybe this is because these deaths are not natural and should never have occured. However, only 3% of all the deaths in the world occured due to self harm and interpersonal violence in 2017. On the other hand, almost 31% of all global deaths occured because of <a href = 'https://www.who.int/health-topics/cardiovascular-diseases/#tab=tab_1' target = '_blank'>Cardiovascular diseases</a> while <a href = 'https://www.who.int/health-topics/cancer#tab=tab_1' target = '_blank'>Cancers</a> (or neoplasms in medical terms) contributed to 18% of all deaths."
+    
+}
+    
+function function4() {
+    
+document.getElementById("cause").innerHTML = "Heart problems or in more complex terms, <a href = 'https://www.who.int/health-topics/cardiovascular-diseases/#tab=tab_1' target = '_blank'>Cardiovascular diseases</a>, is the most common cause of death globally. In fact, almost 31% of all global deaths in 2017 occured because of cardiovascular diseases while <a href = 'https://www.who.int/health-topics/cancer#tab=tab_1' target = '_blank'>Cancers</a> (or neoplasms in medical terms) contributed to 18% of global deaths.";
+
+}
+    
+</script>
+</div>
+    
+<p id="cause"></p>
+    
+<p class = "p-line">So now let's see all the major causes of death globally and how many people actually die from each of these causes</p>   
+ 
+</div>    
+    
+    
+<!-- Div for the bar chart showing global causes of death -->
+<div class = "global-cause">
+    
+<h2 class = "hforchart">Global Causes of Death</h2>
+    
+<p class = "pforchart">This bar chart shows the global causes of death and how the patterns have changed over the years. All the causes of death are broadly divided into 4 categories:</p>
+   
+<ol >
+ <li>Non-Communicable Diseases - These are diseases that are non-infectious and do not spread from person to person. The most common examples of these are cardiovascular diseases and neoplasms (cancers).</li>
+ <li>Communicable Diseases - These are infectious diseases that can spread from person to person. Some of the examples of these can be tuberculosis, typhoid, HIV/AIDS, etc</li>
+ <li>Injuries and Violence - This covers all the causes of death that occur due to injuries and violence such as car accidents, shootings, murders, suicides, etc.</li>
+ <li>Maternal and Nutritional Disorders - These are all the disorders specific to maternal, neonatal or nutritional causes</li>
+    
+</ol>    
+    
+<p class = "pforchart">You can use the slider to select any year and see the global patterns in the causes of death in that year. Cardiovascular diseases and neoplasms have remained the two most common causes of death globally. But on the whole, the deaths due to Non-Communicable Diseases have increased over the years while the deaths due to Communicable Diseases have decreased. Deaths because of Maternal and neonatal disorders have also declined. All this is just an indicator of the improvement in healthcare over the years.</p>
+    
+
+<div id="slider" align=center>
+<label for="year_filter">Please select a year: </label>
+<input type="range" min=1995 max=2017 step=1 id="year_filter" value=1995 oninput="selected_year.value = year_filter.value">
+<output id="selected_year">1995</output>
+</div>    
+    
+<div id="barchart" align=center>
+<script type="text/javascript" src="bar_chart.js"></script>   
+</div>
+    
+</div>
+    
+    
+<!-- Div for the choropleth map showing HDI values of countries --> 
+<div class = "HDI-index">
+
+<h2 class = "hforchart">Human Development Index of Countries in the World</h2>
+
+<p class = "pforchart">If we see the global trend in the causes on death, deaths due to Non-Communicable Diseases have increased over the years while the deaths due to Communicable Diseases have decreased. However, is this trend followed in every country of the world? Or do different countries have majority of deaths due to different causes? And are the common causes of death in a country linked to it's financial and health condition in any way?</p>
+    
+<p class = "pforchart">To answer these questions, first let's see a world map that shows the Human Development Index of every country in the world. This HDI Index is an indicator of the country's economic status, life expectancy and educational levels. Countries with a higher HDI are coloured darker as compared to countries with a lower HDI.</p>
+    
+<p class = "pforchart">Hover over each country to see its specific HDI value.</p>
+    
+<div id="choropleth" align=center>
+<script type="text/javascript" src="choropleth.js"></script> 
+</div>
+    
+</div>
+    
+    
+<!-- Div for the line chart showing changes in causes of death with time -->    
+<div class = "change-with-time">
+    
+<h2 class = "hforchart">Changes in the Causes of Death over Time</h2>  
+    
+<p class = "pforchart">This line chart shows the changes in the causes of death over time for different countries. You can see the overarching trend in how the number of deaths because of a particular cause increase or decrease with time. This trend can also shine some light on the situation in a particular country. For example, countries with a lower HDI value typically tend to have most deaths due to Communicable Diseases and Maternal Disorders while countries with a high HDI value have most deaths due to Non-Communicable Diseases.</p>
+    
+<p class = "pforchart">You can use the filter to select any country and the chart will adjust to show the details for that country. Each of the lines represent a particular cause of death and you can hover on the line to get additional details about the number of deaths in a particular year. The colours of the line denote the 4 categories of causes, namely <span style="background-color: #f587aa">Non-Communicable Diseases</span>, <span style="background-color: #9af797">Communicable Diseases</span>, <span style="background-color: #8592d4">Injuries and Violence</span>, <span style="background-color: #ffdc52">Maternal and Nutritional Disorders</span></p>
+    
+<p class = "pforchart">Do compare high HDI countries like United States of America, United Kingdom, Australia, etc. with low HDI countries like Niger, Chad, Central African Republic, etc. to see the sharp contrast. Also, note countries like Afghanistan, Syria, etc. which have a uncommonly higher number of deaths due to Injuries because of the ongoing conflicts in these countries</p>
+
+<select id="filter1"></select>
+    
+<div id="linechart" align=center>
+<script type="text/javascript" src="line_chart.js"></script>   
+</div>
+   
+<p id="countrydetail"></p>
+  
+</div>
+    
+<!-- Div for the stacked bar chart showing changes in causes of death according to age groups -->      
+<div class = "change-with-age">
+    
+<h2 class = "hforchart">Different causes of Death in Different Age-groups</h2>  
+
+<p class = "pforchart">The causes of deaths also vary according to different age groups. For example, most of the deaths in children under 5 years occur due to maternal disorders or communicable diseases. Similarly, most of the deaths in aged people over 70 years occur dur to non-communicable diseases like heart problems or cancers.</p>   
+    
+<p class = "pforchart">You can also see varying trends in the causes of deaths among age-groups for different countries. For example, countries with a lower HDI value like Niger, Chad, Central African Republic, etc. have majority of deaths in children below 5 years because of communicable diseases and maternal disorders. This is because the healthcare systems in these countries are not well developed with low levels of maternal and neonatal care. On the other hand, countries with high HDI value like United States of America, United Kingdom, Australia, etc. have majority of deaths occur in the age group of 70+ years because of non-communicable diseases with children having the least number of deaths. These reflect the high healthcare standards of these countries.</p>
+    
+<p class = "pforchart">Use the filter to see causes of death in different age agroups among various countries. You can also filter these by year for a particular country. Hover over the stacked bar chart to see the number of deaths in each category. The colours in each bar denote the 4 categories of causes, namely <span style="background-color: #f587aa">Non-Communicable Diseases</span>, <span style="background-color: #9af797">Communicable Diseases</span>, <span style="background-color: #8592d4">Injuries and Violence</span>, <span style="background-color: #ffdc52">Maternal and Nutritional Disorders</span> </p>
+    
+<select id="filter2">
+</select>
+
+<select id="filter3">
+</select>
+    
+<div id="stackedbarchart" align=center>
+<script type="text/javascript" src="stacked_bar_chart.js"></script> 
+</div>
+    
+</div>
+    
+<!-- Div for the circular packing chart showing causes of death for a specific country, year, gender, age -->      
+<div class = "your-changes">
+    
+<h2 class = "hforchart">What do you think?</h2>
+    
+<p class = "pforchart">Now that we have seen the major causes of death and how they change according to country, let's circle back to you! What do you think is the most common cause of death in your country, age group and gender? Well, select these parameters and you will get your answer! You can also select a year to see how these causes have changed with time</p>
+    
+<p class = "pforchart">The bubble chart shows the number of deaths in your chosen country, year, gender and age group. You can hover over the circles to get details about the cause of death and the number of deaths. Also, you can drag and drop the circles to form completely individual patterns. The colours of the circles denote the 4 categories of causes, namely <span style="background-color: #f587aa">Non-Communicable Diseases</span>, <span style="background-color: #9af797">Communicable Diseases</span>, <span style="background-color: #8592d4">Injuries and Violence</span>, <span style="background-color: #ffdc52">Maternal and Nutritional Disorders</span></p>
+    
+<select id="filter4">
+</select>
+
+<select id="filter5">
+</select> 
+
+<select id="filter6">
+</select>
+
+<select id="filter7">
+</select> 
+    
+<div id="circularpackingchart" align=center>
+<script type="text/javascript" src="circular_packing_chart.js"></script> 
+</div>
+    
+</div>   
+    
+    
+<!-- Div for the conclusion -->   
+<div class = "conclusion">
+    
+<h2 class = "hconclusion">Conclusion</h2>  
+
+<p class = "pforchart">The leading cause of death in the world currently is Cardiovascular diseases followed by Neoplasms (Cancers). It is also obvious that most of the deaths in the world are caused by non-communicable diseases as compared to any other types. This trend has been consistent globally but the picture is quite different in individual countries. </p>
+
+<p class = "pforchart">The leading cause of death in countries with lower HDI value is mainly communicable diseases such as malaria, enteric infections, respiratory infections as well as maternal and neonatal disorders. On the other hand, the leading cause of death in countries with a much higher HDI value is mainly non-communicable diseases like Cardiovascular diseases, Neoplasms, neurological disorders, etc.</p>
+    
+<p class = "pforchart">This trend is also visible in causes of death among different age groups. In countries with lower HDI value, the majority of deaths occur in children below 5 years because of communicable diseases and maternal disorders. On the other hand, in ountries with a much higher HDI value, the majority of deaths occur in the age group of 70+ years because of non-communicable diseases.</p>
+    
+    
+<p class = "pforchart">All in all, this project helps in understanding the correlation between the economic status and health conditions of a country with the patterns in its death rates. Countries where most of the people die young because of communicable diseases obviously need to improve their healthcare facilities which are also interlinked with their economic growth and education levels. This also shows that it is very important to look at death in order to understand and improve the conditions for life.</p>
+    
+<p class = "p-quote"><strong>After all, Death is an intrinsic part of life.</strong></p>
+</div>  
+    
+</body>
+</html>
